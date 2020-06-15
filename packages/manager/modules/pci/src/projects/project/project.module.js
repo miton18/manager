@@ -15,6 +15,7 @@ import dataProcessing from './data-processing';
 import edit from './edit';
 import errorModal from '../new/error-modal';
 import failoverIps from './failover-ips';
+import inactive from './inactive';
 import instances from './instances';
 import kubernetes from './kubernetes';
 import loadBalancer from './load-balancer';
@@ -33,6 +34,7 @@ import training from './training';
 import workflow from './workflow';
 
 import './project.less';
+import projectComponent from './project.component';
 
 const moduleName = 'ovhManagerPciProject';
 
@@ -47,6 +49,7 @@ angular
     edit,
     errorModal,
     failoverIps,
+    inactive,
     instances,
     loadBalancer,
     kubernetes,
@@ -68,6 +71,7 @@ angular
     training,
   ])
   .config(routing)
+  .component('pciProject', projectComponent)
   .run(/* @ngTranslationsInject:json ./translations */);
 
 export default moduleName;

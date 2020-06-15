@@ -1,13 +1,12 @@
-import template from './sidebar.html';
-import controller from './sidebar.controller';
+import template from './project.html';
+import controller from './project.controller';
 
 export default {
   bindings: {
     goToProject: '<',
     goToProjectInactive: '<',
-    isOpen: '<',
+    project: '<',
     user: '<',
-    onClick: '&',
   },
   controller,
   template,

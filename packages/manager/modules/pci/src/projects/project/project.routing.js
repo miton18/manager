@@ -1,15 +1,8 @@
-import controller from './project.controller';
-import template from './project.html';
-
 export default /* @ngInject */ ($stateProvider) => {
   $stateProvider.state('pci.projects.project', {
     url: '/{projectId:[0-9a-zA-Z]{32}}',
     views: {
-      '@pci': {
-        controller,
-        controllerAs: '$ctrl',
-        template,
-      },
+      '@pci': 'pciProject',
     },
     redirectTo: (transition) => {
       const projectPromise = transition.injector().getAsync('project');
@@ -31,6 +24,13 @@ export default /* @ngInject */ ($stateProvider) => {
       });
     },
     resolve: {
+      goToProjectInactive: ($state, projectId) => (project) =>
+        $state.go('pci.projects.project.inactive', {
+          billingStatus: project.billingStatus,
+          projectId,
+          projectStatus: project.projectStatus,
+          targetProjectId: project.project_id,
+        }),
       projectId: /* @ngInject */ ($transition$) =>
         $transition$.params().projectId,
       project: /* @ngInject */ (OvhApiCloudProject, projectId) =>
@@ -39,8 +39,6 @@ export default /* @ngInject */ ($stateProvider) => {
         }).$promise,
       breadcrumb: /* @ngInject */ (project) =>
         project.status !== 'creating' ? project.description : null,
-      sidebarVisible: /* @ngInject */ (project) =>
-        project.status !== 'creating',
       user: /* @ngInject */ (SessionService) => SessionService.getUser(),
     },
   });

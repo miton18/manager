@@ -1,9 +1,16 @@
+import find from 'lodash/find';
+import map from 'lodash/map';
+import set from 'lodash/set';
+
 import { DEFAULT_PROJECT_KEY } from './projects.constant';
+import Project from './Project.class';
 
 export default class {
   /* @ngInject */
-  constructor(ovhUserPref) {
+  constructor($q, ovhUserPref, publicCloud) {
+    this.$q = $q;
     this.ovhUserPref = ovhUserPref;
+    this.publicCloud = publicCloud;
   }
 
   getDefaultProject() {
@@ -13,6 +20,33 @@ export default class {
       }
       throw err;
     });
+  }
+
+  getProjects(filters = [], sort = 'description', sortOrder = 'asc') {
+    return this.$q
+      .all([
+        this.publicCloud.getProjects(filters, sort, sortOrder),
+        this.publicCloud.getServices([
+          {
+            field: 'route.path',
+            comparator: 'eq',
+            reference: '/cloud/project/{serviceName}',
+          },
+        ]),
+      ])
+      .then(([projects, services]) =>
+        map(projects, (project) => {
+          set(
+            project,
+            'service',
+            find(
+              services,
+              (service) => project.project_id === service.resource.name,
+            ),
+          );
+          return new Project(project);
+        }),
+      );
   }
 
   setAsDefaultProject(projectId) {

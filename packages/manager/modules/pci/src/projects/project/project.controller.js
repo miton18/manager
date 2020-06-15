@@ -15,8 +15,6 @@ export default class ProjectController {
     atInternet,
     coreConfig,
     OvhApiCloudProject,
-    sidebarVisible,
-    user,
   ) {
     this.$scope = $scope;
     this.$state = $state;
@@ -25,9 +23,6 @@ export default class ProjectController {
     this.$uibModal = $uibModal;
     this.atInternet = atInternet;
     this.OvhApiCloudProject = OvhApiCloudProject;
-    this.sidebarVisible = sidebarVisible;
-    this.loading = false;
-    this.user = user;
     this.region = coreConfig.getRegion();
 
     const filterByRegion = (list) =>
@@ -42,23 +37,11 @@ export default class ProjectController {
 
   $onInit() {
     this.isSidebarOpen = false;
-    this.loading = true;
 
     this.$scope.$on('sidebar:open', () => {
       this.isSidebarOpen = true;
       this.$timeout(() => angular.element('#sidebar-focus').focus());
     });
-
-    return this.OvhApiCloudProject.v6()
-      .get({
-        serviceName: this.$stateParams.projectId,
-      })
-      .$promise.then((project) => {
-        this.project = project;
-      })
-      .finally(() => {
-        this.loading = false;
-      });
   }
 
   closeSidebar() {
