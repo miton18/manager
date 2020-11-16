@@ -2974,6 +2974,41 @@
   dependencies:
     "@types/node" ">= 8"
 
+"@ovh-ux/component-rollup-config@^8.0.0":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@ovh-ux/component-rollup-config/-/component-rollup-config-8.0.2.tgz#8f87043fe87b3c8238c6fa840add6dad7a314f5f"
+  integrity sha512-pRLvzBFPiDYsoSPcfLD1s0VOqjz8EMTRhlG0V3imeX9QF2GU1dp6fCuem+XHBuKmTNForMC6vJVQe1fsrj+2QQ==
+  dependencies:
+    "@babel/plugin-proposal-class-properties" "^7.10.1"
+    "@babel/plugin-proposal-optional-chaining" "^7.10.1"
+    "@babel/plugin-proposal-private-methods" "^7.10.1"
+    "@babel/plugin-syntax-dynamic-import" "^7.8.3"
+    "@babel/preset-env" "^7.10.3"
+    "@ovh-ux/rollup-plugin-less-inject" "^1.0.5"
+    "@ovh-ux/rollup-plugin-less-tilde-importer" "^1.0.3"
+    "@rollup/plugin-babel" "^5.0.0"
+    "@rollup/plugin-commonjs" "^11.0.2"
+    "@rollup/plugin-dynamic-import-vars" "^1.1.0"
+    "@rollup/plugin-image" "^2.0.4"
+    "@rollup/plugin-json" "^4.0.2"
+    "@rollup/plugin-node-resolve" "^7.1.1"
+    "@rollup/pluginutils" "^3.0.8"
+    babel-plugin-angularjs-annotate "^0.10.0"
+    camelcase "^5.0.0"
+    core-js "^3.6.5"
+    estree-walker "^0.6.0"
+    less "~3.9.0"
+    less-plugin-remcalc "^0.1.0"
+    lodash "^4.17.15"
+    magic-string "^0.25.4"
+    node-sass "^4.10.0"
+    regenerator-runtime "^0.13.7"
+    rollup "^2.0.2"
+    rollup-plugin-html "^0.2.1"
+    rollup-plugin-peer-deps-external "^2.2.2"
+    rollup-plugin-sass "^1.2.2"
+    slash "^2.0.0"
+
 "@ovh-ux/ng-ovh-api-wrappers@^4.0.4", "@ovh-ux/ng-ovh-api-wrappers@^4.0.8":
   version "4.0.8"
   resolved "https://registry.yarnpkg.com/@ovh-ux/ng-ovh-api-wrappers/-/ng-ovh-api-wrappers-4.0.8.tgz#f95c8ce909f7baa59f8fd85949801e7d74bf6dbd"
@@ -5953,6 +5988,10 @@ bootstrap-additions@~0.3.1:
 bootstrap4@twbs/bootstrap#v4.0.0:
   version "4.0.0"
   resolved "https://codeload.github.com/twbs/bootstrap/tar.gz/8a628b943cf31ca0a002c08af661a95772480225"
+
+bootstrap4@twbs/bootstrap#v4.3.1:
+  version "4.3.1"
+  resolved "https://codeload.github.com/twbs/bootstrap/tar.gz/8fa0d3010112dca5dd6dd501173415856001ba8b"
 
 bootstrap@^3.3.6, bootstrap@^3.3.7, bootstrap@^3.4.1, bootstrap@~3.4.1:
   version "3.4.1"
@@ -22275,15 +22314,15 @@ websocket-extensions@>=0.1.1:
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
   integrity sha512-OqedPIGOfsDlo31UNwYbCFMSaO9m9G/0faIHj5/dZFDMFqPTcx6UwqyOy3COEaEOg/9VsGIpdqn62W5KhoKSpg==
 
-whatwg-fetch@^3.5.0:
-  version "3.5.0"
-  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.5.0.tgz#605a2cd0a7146e5db141e29d1c62ab84c0c4c868"
-  integrity sha512-jXkLtsR42xhXg7akoDKvKWE40eJeI+2KZqcp2h3NsOrRnDvtWX36KcKl30dy+hxECivdk2BVUHVNrPtoMBUx6A==
-
 whatwg-fetch@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.4.1.tgz#e5f871572d6879663fa5674c8f833f15a8425ab3"
   integrity sha512-sofZVzE1wKwO+EYPbWfiwzaKovWiZXf4coEzjGP9b2GBVgQRLQUZ2QcuPpQExGDAW5GItpEm6Tl4OU5mywnAoQ==
+
+whatwg-fetch@^3.5.0:
+  version "3.5.0"
+  resolved "https://registry.yarnpkg.com/whatwg-fetch/-/whatwg-fetch-3.5.0.tgz#605a2cd0a7146e5db141e29d1c62ab84c0c4c868"
+  integrity sha512-jXkLtsR42xhXg7akoDKvKWE40eJeI+2KZqcp2h3NsOrRnDvtWX36KcKl30dy+hxECivdk2BVUHVNrPtoMBUx6A==
 
 whatwg-url@^7.0.0:
   version "7.1.0"
