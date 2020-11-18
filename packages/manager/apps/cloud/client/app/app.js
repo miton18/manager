@@ -41,6 +41,10 @@ import ovhManagerBanner from '@ovh-ux/manager-banner';
 import ovhManagerNavbar from '@ovh-ux/manager-navbar';
 import ovhManagerServerSidebar from '@ovh-ux/manager-server-sidebar';
 import ovhNotificationsSidebar from '@ovh-ux/manager-notifications-sidebar';
+import cucClickEnterOnKeypress from '../components/clickEnterOnKeypress';
+import cucHighlightedElement from '../components/highlightedElement';
+import cucMonitoring from '../components/monitoring';
+import cucSmoothScrollHere from '../components/smoothScrollHere';
 
 import cloudUniverseComponents from '../cloudUniverseComponents';
 
@@ -113,6 +117,10 @@ angular
 
       ngTranslateAsyncLoader,
       cloudUniverseComponents,
+      cucClickEnterOnKeypress,
+      cucHighlightedElement,
+      cucMonitoring,
+      cucSmoothScrollHere,
       ovhManagerAtInternetConfig,
       ovhManagerBanner,
       ovhManagerNavbar,
