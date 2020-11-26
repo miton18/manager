@@ -22,9 +22,9 @@ const ALL_LANGUAGES = process.env.OVH_BUILD_LANGUAGES
 const injectTranslationImport = (languages, trads, id, subdirectory) => {
   let result = '';
   trads.forEach((trad) => {
-    const currentPath = path.dirname(id);
-    const absolutePath = path.resolve(currentPath, trad, subdirectory);
-    const relativePath = path.relative(currentPath, absolutePath);
+    const currentPath = path.posix.dirname(id);
+    const absolutePath = path.posix.resolve(currentPath, trad, subdirectory);
+    const relativePath = path.posix.relative(currentPath, absolutePath);
     if (fs.existsSync(absolutePath)) {
       result += `
       promises.push(
