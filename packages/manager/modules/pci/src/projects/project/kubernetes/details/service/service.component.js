@@ -17,6 +17,8 @@ const component = {
     updateCluster: '<',
     updatePolicy: '<',
     isVersionSupported: '<',
+    projectId: '<',
+    privateNetworks: '<',
   },
   template,
   controller,
