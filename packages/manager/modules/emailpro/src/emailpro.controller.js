@@ -13,6 +13,8 @@ export default /* @ngInject */ function EmailProCtrl(
   $location,
   $stateParams,
   $translate,
+  atInternet,
+  navigation,
   EmailPro,
   APIEmailPro,
   getTabLink,
@@ -23,6 +25,7 @@ export default /* @ngInject */ function EmailProCtrl(
   this.getTabLink = getTabLink;
   let initialLoad = true;
 
+  $scope.atInternet = atInternet;
   $scope.currentRegionCA = coreConfig.isRegion('CA');
   $scope.accountTypeDedicated = EmailPro.accountTypeDedicated;
   $scope.accountTypeHosted = EmailPro.accountTypeHosted;
@@ -498,6 +501,18 @@ export default /* @ngInject */ function EmailProCtrl(
     } else {
       $scope.edit.active = false;
     }
+  };
+
+  $scope.removeEmailProDialog = function removeEmailProDialog(exchange) {
+    $scope.atInternet.trackClick({
+      name: 'web::email-pro::delete',
+      type: 'action',
+    });
+    $scope.atInternet.trackPage({
+      name: 'web::email-pro::delete',
+      type: 'navigation',
+    });
+    $scope.setAction('emailpro/remove/emailpro-remove', exchange);
   };
 
   $scope.getAutoRenewURL = () =>
