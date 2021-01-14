@@ -39,6 +39,19 @@
             ></oui-select>
         </oui-field>
 
+        <oui-field data-ng-if="$ctrl.rtmAvailable()">
+            <oui-checkbox
+                id="installRTM"
+                name="installRTM"
+                data-description="{{:: 'vps_configuration_rebuild_installRTM_alert' | translate }}"
+                data-model="$ctrl.vpsOptions.installRTM"
+            >
+                <span
+                    data-translate="vps_configuration_rebuild_installRTM"
+                ></span>
+            </oui-checkbox>
+        </oui-field>
+
         <oui-field data-ng-if="$ctrl.vpsOptions.sshKey">
             <oui-checkbox
                 id="sendPassword"

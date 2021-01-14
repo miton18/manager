@@ -155,6 +155,11 @@ export default /* @ngInject */ ($stateProvider) => {
           servers: [server],
         });
       },
+      statistics: /* @ngInject */ ($http, serviceName) =>
+        $http
+          .get(`/vps/${serviceName}/statistics`)
+          .then(({ data }) => data)
+          .catch(() => null),
     },
   });
 };

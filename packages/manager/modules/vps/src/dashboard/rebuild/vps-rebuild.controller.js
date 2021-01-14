@@ -9,7 +9,17 @@ export default class VpsRebuildController {
   $onInit() {
     this.vpsOptions = {
       doNotSendPassword: false,
+      installRTM: true,
     };
+  }
+
+  rtmAvailable() {
+    return this.availableImages.some(
+      (elem) =>
+        elem.id === this.vpsOptions.imageId &&
+        !elem.name.toLowerCase().includes('windows') &&
+        !elem.name.toLowerCase().includes('bsd'),
+    );
   }
 
   rebuildVps(options) {
