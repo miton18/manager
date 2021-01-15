@@ -1,6 +1,7 @@
 export default class OrderCartService {
   /* @ngInject */
-  constructor($q, OvhApiMe, OvhApiOrder) {
+  constructor($http, $q, OvhApiMe, OvhApiOrder) {
+    this.$http = $http;
     this.$q = $q;
     this.OvhApiMe = OvhApiMe;
     this.OvhApiOrder = OvhApiOrder;
@@ -45,6 +46,18 @@ export default class OrderCartService {
         },
         product,
       ).$promise;
+  }
+
+  addNewOptionToProject(cartId, option) {
+    return this.$http
+      .post(`/order/cart/${cartId}/cloud/options `, option)
+      .then(({ data: item }) => item);
+  }
+
+  addOptionToCart(serviceName, option) {
+    return this.$http
+      .post(`/order/cartServiceOption/cloud/${serviceName}`, option)
+      .then(({ data }) => data);
   }
 
   getProductOptions(cartId, productName, productPlanCode) {
@@ -199,5 +212,13 @@ export default class OrderCartService {
 
   getOrderApiSchema() {
     return this.OvhApiOrder.v6().schema().$promise;
+  }
+
+  getHdsAddon(cartId, productName, parentPlanCode, hdsPlanCode) {
+    return this.getProductOptions(
+      cartId,
+      productName,
+      parentPlanCode,
+    ).then((addons) => addons.find((addon) => addon.planCode === hdsPlanCode));
   }
 }
