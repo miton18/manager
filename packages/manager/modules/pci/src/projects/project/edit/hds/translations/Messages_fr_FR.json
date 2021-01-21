@@ -1,0 +1,6 @@
+{
+  "pci_projects_project_edit_hds_title": "Certification HDS",
+  "pci_projects_project_edit_hds_description": "OVHcloud proposent un niveau de sécurité et de protection des données spécifique aux données de santé française, avec une approche pan-européenne.",
+  "pci_projects_project_edit_hds_btn_validate": "Mettre à jour",
+  "pci_projects_project_edit_hds_btn_validate_status_success": "La certification HDS a bien été activée sur votre projet {{projectName}}"
+}
