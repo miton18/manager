@@ -1,0 +1,22 @@
+<div class="mb-3">
+    <oui-checkbox
+        data-disabled="!$ctrl.isValidForCheckout()"
+        data-model="$ctrl.model.hds"
+        class="mb-3"
+        data-on-change="$ctrl.onChange(modelValue)"
+    >
+        <span data-translate="pci_projects_hds_description"></span>
+    </oui-checkbox>
+
+    <oui-message data-ng-if="!$ctrl.hds.isValidSupportLevel" data-type="info">
+        <span data-translate="pci_projects_hds_banner_info"></span>
+        <a
+            data-ng-href="{{::$ctrl.infoLink}}"
+            data-ng-click="$ctrl.onLinkClicked()"
+            target="_blank"
+            rel="noopener"
+        >
+            <span data-translate="pci_projects_hds_banner_info_link"></span>
+        </a>
+    </oui-message>
+</div>
