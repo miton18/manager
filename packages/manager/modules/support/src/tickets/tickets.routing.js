@@ -62,6 +62,7 @@ export const state = {
       $transition$.params().tickets ||
       ticketService.query($transition$.params()),
     breadcrumb: () => null,
+    hideBreadcrumb: () => true,
   },
   url: '/tickets?filters&pageNumber&pageSize&sortBy&sortOrder',
   views: {
