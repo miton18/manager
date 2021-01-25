@@ -66,6 +66,7 @@ import expiredPage from './expired';
 
 import dedicatedServer from './dedicated/server';
 import userContracts from './user-contracts';
+import billing from './billing';
 
 import { TRACKING } from './at-internet.constants';
 
@@ -81,7 +82,7 @@ angular
       account,
       ovhManagerAccountSidebar,
       ovhManagerCore,
-      'Billing',
+      billing,
       chartjs,
       'controllers',
       contactsService,

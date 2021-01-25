@@ -1,15 +1,15 @@
 import flatten from 'lodash/flatten';
 import { Environment } from '@ovh-ux/manager-config';
-
 import { User } from '@ovh-ux/manager-models';
+
+import { paymentEvent as paymentMeans } from '../../billing/constants';
 
 angular.module('services').service('User', [
   '$http',
   '$q',
   'constants',
-  'Billing.constants',
   'OvhHttp',
-  function userF($http, $q, constants, billingConstants, OvhHttp) {
+  function userF($http, $q, constants, OvhHttp) {
     const self = this;
     let user = null;
     let userPromise;
@@ -167,7 +167,7 @@ angular.module('services').service('User', [
     };
 
     this.getValidPaymentMeansIds = function getValidPaymentMeansIds() {
-      const means = billingConstants.paymentMeans;
+      const means = paymentMeans;
       const baseUrl = `${constants.swsProxyRootPath}me/paymentMean`;
       const meanRequests = [];
       means.forEach((paymentMethod) => {

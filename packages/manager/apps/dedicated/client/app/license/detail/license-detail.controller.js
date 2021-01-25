@@ -1,3 +1,5 @@
+import configConstants from '../../config/constants.config';
+
 angular.module('Module.license').controller('LicenseDetailsCtrl', [
   '$scope',
   '$translate',
@@ -6,7 +8,6 @@ angular.module('Module.license').controller('LicenseDetailsCtrl', [
   '$timeout',
   '$location',
   'constants',
-  'Billing.URLS',
   '$window',
   'Alerter',
 
@@ -18,7 +19,6 @@ angular.module('Module.license').controller('LicenseDetailsCtrl', [
     $timeout,
     $location,
     constants,
-    billingUrls,
     $window,
     Alerter,
   ) {
@@ -151,7 +151,8 @@ angular.module('Module.license').controller('LicenseDetailsCtrl', [
       if (!$scope.user) {
         return constants.renew.replace('{serviceName}', '');
       }
-      const renewUrl = billingUrls.renew[$scope.user.ovhSubsidiary];
+      const renewUrl =
+        configConstants.billingRenew.renew[$scope.user.ovhSubsidiary];
       if (!renewUrl) {
         return constants.renew.replace('{serviceName}', '');
       }

@@ -1,3 +1,5 @@
-angular.module('Billing.constants').constant('FIDELITY_EVENT', {
-  CREDIT: 'FidelityCredit',
-});
+export default {
+  FIDELITY_EVENT: {
+    CREDIT: 'FidelityCredit',
+  },
+};

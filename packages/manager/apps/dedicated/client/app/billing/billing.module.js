@@ -12,18 +12,21 @@ import sla from './sla/sla.module';
 import termination from './confirmTerminate/termination.module';
 import paymentMehtod from './payment/method';
 
-import config from '../config/config';
+import directives from './components/directives';
+import filters from './components/filters';
 import routing from './billing.routing';
+import services from './services.module';
+
+const moduleName = 'Billing';
 
 angular
-  .module('Billing', [
+  .module(moduleName, [
     ovhManagerCore,
     autorenew,
-    'Billing.constants',
+    // constants,
     'Billing.controllers',
-    'Billing.directives',
-    'Billing.filters',
-    'Billing.services',
+    directives,
+    filters,
     history,
     'ngRoute',
     'ngSanitize',
@@ -31,6 +34,7 @@ angular
     orders,
     ngOvhExportCsv,
     'ngOvhUtils',
+    services,
     sla,
     termination,
     'ui.bootstrap',
@@ -38,20 +42,6 @@ angular
     paymentMehtod,
   ])
   .constant('BILLING_BASE_URL', 'billing/')
-  .constant('Billing.constants', {
-    aapiRootPath: config.aapiRootPath,
-    swsProxyRootPath: config.swsProxyRootPath,
-    paymentMeans: [
-      'bankAccount',
-      'paypal',
-      'creditCard',
-      'deferredPaymentAccount',
-    ],
-    target: config.target,
-  })
-  .constant('Billing.URLS', {
-    renew: config.constants.billingRenew,
-  })
   .config(routing)
   .service('billingFeatureAvailability', featureAvailability)
   .run(
@@ -59,3 +49,5 @@ angular
       set($rootScope, 'worldPart', coreConfig.getRegion());
     },
   );
+
+export default moduleName;
