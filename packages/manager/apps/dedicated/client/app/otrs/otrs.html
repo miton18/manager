@@ -291,7 +291,7 @@
             </tbody>
             <tbody data-ng-show="!loaders.tickets && tickets.ids.length">
                 <tr
-                    data-ng-repeat="ticket in tickets.detail | orderBy:'creationDate':true track by ticket.ticketNumber"
+                    data-ng-repeat="ticket in tickets.detail | orderBy:'creationDate':true track by ticket.ticketNumber+$index"
                 >
                     <th
                         scope="row"
