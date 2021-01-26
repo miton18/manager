@@ -61,7 +61,6 @@ import './css/source.scss';
 import moduleName from './app';
 import './app.routes';
 
-import './account/contacts/service/edit/edit.module';
 import './account/otrs/otrs-controllers.module';
 import './account/otrs/otrs-directives.module';
 import './account/otrs/otrs-filters.module';
