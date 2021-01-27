@@ -1,4 +1,5 @@
 import moment from 'moment';
+import 'moment-duration-format';
 import { GUIDE_URL } from '../../training.constants';
 
 export default class PciTrainingJobsInfoController {
