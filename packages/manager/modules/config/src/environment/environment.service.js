@@ -1,3 +1,4 @@
+import { SupportLevel } from '@ovh-ux/manager-models';
 import { ALLOWED_REGIONS, DEFAULT_REGION } from './environment.constants';
 import {
   detectUserLocale,
@@ -14,6 +15,7 @@ export default class EnvironmentService {
     this.applicationName = '';
     this.universe = '';
     this.applicationURLs = {};
+    this.supportLevel = null;
   }
 
   setRegion(region = DEFAULT_REGION) {
@@ -29,10 +31,15 @@ export default class EnvironmentService {
 
   setUser(user) {
     this.user = user;
+    this.supportLevel = new SupportLevel(user.supportLevel);
   }
 
   getUser() {
     return this.user;
+  }
+
+  getSupportLevel() {
+    return this.supportLevel;
   }
 
   setUserLocale(userLocale) {

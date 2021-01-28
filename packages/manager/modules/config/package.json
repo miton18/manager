@@ -32,5 +32,8 @@
   },
   "devDependencies": {
     "@ovh-ux/component-rollup-config": "^8.0.0 || ^9.0.0"
+  },
+  "peerDependencies": {
+    "@ovh-ux/manager-models": "^1.0.0"
   }
 }
