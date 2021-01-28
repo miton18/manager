@@ -7,7 +7,6 @@
   "telephony_fax_tab_fax": "Faksas",
   "telephony_fax_tab_contact": "Kontaktiniai duomenys",
   "telephony_fax_tab_assist": "Pagalba",
-  "telephony_fax_no_service_back_link": "Retour à la gestion du groupe",
   "telephony_fax_section_back_link": "Grįžti prie fakso valdymo",
   "telephony_fax_rename_error": "Negalima pervadinti fakso {{serviceName}}.",
   "telephony_fax_termination_warning": "La ligne sera résiliée le <strong>{{ date }}</strong>.",
